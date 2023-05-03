@@ -1,7 +1,7 @@
-1. Wird beim Server die Authentication zuletzt validiert, nach syntax etc.?
+1. 
+Wird beim Server die Authentication zuletzt validiert, nach syntax etc.?
 
 2. 
-
 getAuthentication
  -> false
 wozu ist das gut bei einem angeblich offenen Server?
