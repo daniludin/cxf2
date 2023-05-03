@@ -13,3 +13,6 @@ getNoticeXmls (ein Param.)
 	com.sun.xml.ws.fault.ServerSOAPFaultException: Client received SOAP Fault from server: Method Parameter: noticeXmls cannot be null. 
 	This is BP 1.1 R2211 violation. Please see the server log to find more detail regarding exact cause of the failure.
 
+Wieso "Method Parameter: noticeXmls cannot be null" ?? Der Parameter heisst publishDate, nicht noticeXmls.
+
+
