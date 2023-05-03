@@ -1,3 +1,7 @@
+Wurde mit dem Eclipse "Web Services" Wizard erstellt in ein barebones Maven Projekt.
+
+
+
 1. 
 Wird beim Server die Authentication zuletzt validiert, nach syntax etc.?
 

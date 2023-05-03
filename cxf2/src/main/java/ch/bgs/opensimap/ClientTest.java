@@ -15,6 +15,12 @@ public class ClientTest {
 		new ClientTest().getAuthentication();
 		new ClientTest().getActualCantonNoticeList();
 		new ClientTest().getNoticeXmls();
+		
+		
+		for (int i = 5555; i < 5556; i++) {
+			new ClientTest().getNoticeXml(Long.valueOf(String.valueOf(i)));
+			
+		}
 	}
 
 	public void getAuthentication() {
@@ -24,12 +30,12 @@ public class ClientTest {
 		try {
 			boolean authentication = soapServerPort.getAuthentication();
 			System.out.println("authentication: " + authentication);
-			
+
 		} catch (Fault e) {
 			System.out.println("FaultInfo: " + e.getFaultInfo().getMessage());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}  
+		}
 	}
 
 	public void getActualCantonNoticeList() {
@@ -44,7 +50,7 @@ public class ClientTest {
 			System.out.println("FaultInfo: " + e.getFaultInfo().getMessage());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} 
+		}
 	}
 
 	public void getNoticeXmls() {
@@ -52,21 +58,39 @@ public class ClientTest {
 		SoapServerService service = new SoapServerService();
 		SoapServer soapServerPort = service.getSoapServerPort();
 		try {
-						
-			XMLGregorianCalendar publishDate = DatatypeFactory.newInstance().newXMLGregorianCalendar("2014-01-07");
-			//System.out.println(publishDate);
 
-			String noticeXmls = soapServerPort.getNoticeXmls(publishDate);
-			System.out.println("noticeXmls: " + noticeXmls);
-			
+			XMLGregorianCalendar publishDate = DatatypeFactory.newInstance().newXMLGregorianCalendar("2014-01-07");
+			// System.out.println(publishDate);
+
+			String result = soapServerPort.getNoticeXmls(publishDate);
+			System.out.println("result: " + result);
+
 		} catch (Fault e) {
 			System.out.println("FaultInfo: " + e.getFaultInfo().getMessage());
 			e.printStackTrace();
 		} catch (DatatypeConfigurationException e) {
 			System.out.println(e.getMessage());
-		}  catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}  
+		}
 	}
-	
+
+	public void getNoticeXml(long docId) {
+		System.out.println("getNoticeXml:");
+		SoapServerService service = new SoapServerService();
+		SoapServer soapServerPort = service.getSoapServerPort();
+		try {
+
+			//long docId = 3;
+			String result = soapServerPort.getNoticeXml(docId);
+			System.out.println("result: " + result);
+
+		} catch (Fault e) {
+			System.out.println("FaultInfo: " + e.getFaultInfo().getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }
